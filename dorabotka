@@ -1,0 +1,32 @@
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+
+using namespace std;
+
+ class Verticals{
+     
+ };
+ class normali{
+     
+ };
+ class tex_cord{
+     
+ };
+ class facels{
+     
+ };
+ 
+ void file_tok(string buffer){
+     ifstream f("cube.obj");
+     while(!f.eof()){
+        char *fgets(buffer,) 
+     }
+ }
+int main()
+{
+    fopen("cube.obj","r");
+    string buffer;
+
+    return 0;
+}
