@@ -1,0 +1,16 @@
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+
+using namespace std;
+
+int main()
+{
+    unsigned int d = 0;
+    FILE f=fopen("cube.obj", "r");
+    while (!f.eof()) {
+        d++;
+    }
+    cout << d;
+    return 0;
+}
