@@ -20,13 +20,14 @@ using namespace std;
  void file_tok(string buffer){
      ifstream f("cube.obj");
      while(!f.eof()){
-        char *fgets(buffer,) 
+        char *fgets(buffer, 1, f);
      }
  }
 int main()
 {
     fopen("cube.obj","r");
     string buffer;
+    double x, y, z;
 
     return 0;
 }
