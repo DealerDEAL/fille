@@ -4,13 +4,25 @@
 
 using namespace std;
 
+ class Verticals{
+    double x, y, z;
+ };
+ class normali{
+     double a, b, c;
+ };
+ class tex_cord{
+     double x, y;
+ };
+ class facels{
+     
+ };
+
 int main()
 {
-    unsigned int d = 0;
-    FILE f=fopen("cube.obj", "r");
-    while (!f.eof()) {
-        d++;
-    }
-    cout << d;
+    ifstream file; // создаем объект класса ifstream
+    file.open("cube.obj"); // открываем файл
+    char bufer[256];
+    fgets(bufer, sizeof(bufer), file);
+
     return 0;
 }
