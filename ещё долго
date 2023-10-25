@@ -1,0 +1,61 @@
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+
+using namespace std;
+
+ class Verticals{
+    double x, y, z;
+ };
+ class normali{
+     double a, b, c;
+ };
+ class tex_cord{
+     double x, y;
+ };
+ class facels{
+     double A[4], B[4], C[4];
+ };
+ class count{
+     private:
+     unsigned int normal_count = 0, facels_count = 0, tex_cord_count = 0, verticals_count =0;
+     public:
+     void Count(char* bufer, FILE* stream, int i, const char* determinant){
+        while(i <= 40){
+            fgets(bufer, sizeof(bufer), stream);
+            if(bufer[0] == determinant[0]){
+                verticals_count++;
+            }
+            if(bufer[0] == determinant[1]){
+                tex_cord_count++;
+            }
+            if(bufer[0] == determinant[2]){
+                normal_count++;
+            }
+            if(bufer[0] == determinant[3]){
+                facels_count++;
+            }
+            i++;
+        }
+    }
+};
+
+int main()
+{
+    FILE *stream;
+    stream = fopen("cube.obj", "r");
+    char bufer[50];
+    const char determinant[];
+    determinant[0] = "v";
+    determinant[1] = "vt";
+    determinant[2] = "vn";
+    determinant[3] = "f";
+    
+    int i = 0;
+    //while(i<sizeof(bufer)){
+    //    std::cout << bufer[i] << std::endl;
+    //    i++;
+    //}
+
+    return 0;
+}
