@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <vector>
 
 using namespace std;
 
@@ -20,19 +21,19 @@ using namespace std;
      private:
      unsigned int normal_count = 0, facels_count = 0, tex_cord_count = 0, verticals_count =0;
      public:
-     void Count(char* bufer, FILE* stream, int i, const char* determinant){
+     void Count(char* bufer, FILE* stream, int i, char* determinant_tr){
         while(i <= 40){
             fgets(bufer, sizeof(bufer), stream);
-            if(bufer[0] == determinant[0]){
+            if(bufer[0] == determinant_tr[0]){
                 verticals_count++;
             }
-            if(bufer[0] == determinant[1]){
+            if(bufer[0] == determinant_tr[1]){
                 tex_cord_count++;
             }
-            if(bufer[0] == determinant[2]){
+            if(bufer[0] == determinant_tr[2]){
                 normal_count++;
             }
-            if(bufer[0] == determinant[3]){
+            if(bufer[0] == determinant_tr[3]){
                 facels_count++;
             }
             i++;
@@ -44,12 +45,19 @@ int main()
 {
     FILE *stream;
     stream = fopen("cube.obj", "r");
-    char bufer[50];
-    const char determinant[];
-    determinant[0] = "v";
-    determinant[1] = "vt";
-    determinant[2] = "vn";
-    determinant[3] = "f";
+    char bufer[100];
+    //bufer.c_str;
+    vector<string> determinant;
+    char determinant_tr[8];
+    string y;
+    for(int i = 0; i<4; i++){
+        cin >> y;
+        determinant.push_back(y);   
+    }
+    determinant_tr[0] = determinant[0].c_str;
+    determinant_tr[1] = determinant[1].c_str;
+    determinant_tr[2] = determinant[2].c_str;
+    determinant_tr[3] = determinant[3].c_str;
     
     int i = 0;
     //while(i<sizeof(bufer)){
