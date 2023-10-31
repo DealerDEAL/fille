@@ -2,6 +2,9 @@
 #include <fstream>
 #include <stdio.h>
 #include <vector>
+#include <stdlib.h> 
+#include <time.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -18,9 +21,8 @@ using namespace std;
      double A[4], B[4], C[4];
  };
  class count{
-     private:
-     unsigned int normal_count = 0, facels_count = 0, tex_cord_count = 0, verticals_count =0;
      public:
+     unsigned int normal_count = 0, facels_count = 0, tex_cord_count = 0, verticals_count =0;
      void Count(char* bufer, FILE* stream, int i, char* determinant_tr){
         while(i <= 40){
             fgets(bufer, sizeof(bufer), stream);
@@ -37,6 +39,7 @@ using namespace std;
                 facels_count++;
             }
             i++;
+            cout << verticals_count;
         }
     }
 };
@@ -54,10 +57,12 @@ int main()
         cin >> y;
         determinant.push_back(y);   
     }
-    determinant_tr[0] = determinant[0].c_str;
-    determinant_tr[1] = determinant[1].c_str;
-    determinant_tr[2] = determinant[2].c_str;
-    determinant_tr[3] = determinant[3].c_str;
+    determinant_tr[0] = determinant[0][0];
+    determinant_tr[1] = determinant[1][0];
+    determinant_tr[2] = determinant[2][0];
+    determinant_tr[3] = determinant[3][0];
+    count c;
+    //cout << c.normal_count;
     
     int i = 0;
     //while(i<sizeof(bufer)){
