@@ -13,10 +13,11 @@ using namespace std;
     string x, y, z, w;
     string p[256];
     char part[256];
-    void Verticals_print(ifstream &file, char* determinant_tr){
+    /*void Verticals_print(ifstream &file, char* determinant_tr){
         string s;
         int i = 0;
-        while(getline(file, s, "v")){ // пока не достигнут конец файла класть очередную строку в переменную (s)
+        while(i != 40){ // пока не достигнут конец файла класть очередную строку в переменную (s)
+        getline(file, s);
             if(s[0] == determinant_tr[0]){
                 if(s[1] == ' ') {
                     part[0] == s;
@@ -32,7 +33,7 @@ using namespace std;
             cout << s << endl;
             
         }
-    }
+    }*/
  };
  class normali{
      double a, b, c;
@@ -57,6 +58,8 @@ using namespace std;
            if (s[0] == determinant_tr[0]) {
                if(s[1] == ' ') {
                    verticals_count++;
+                   //strtok(, " ");
+                   
                }
                if(s[1] == 't') {
                    tex_cord_count++;
@@ -66,7 +69,7 @@ using namespace std;
                }
            }
            if(s[0] == determinant_tr[1]) {
-               facels_count;
+               facels_count++;
            }
            
         }
@@ -109,10 +112,13 @@ int main()
    
     ifstream file("cube.obj");
     
-    // FILE *stream;
-    // stream = fopen("cube.obj", "r");
-    // char bufer[200];
-    // //bufer.c_str;
+    FILE *stream;
+    stream = fopen("cube.obj", "r");
+    char bufer[200];
+    fgets(bufer, sizeof(bufer), stream);
+    char* v;
+    v = strtok(bufer, " ");
+    cout << v;
      vector<string> determinant;
      char determinant_tr[8];
      string y;
@@ -126,7 +132,7 @@ int main()
     //determinant_tr[3] = determinant[3][0];
     count k;
     Verticals a;
-    a.Verticals_print(file, determinant_tr);
+    //a.Verticals_print(file, determinant_tr);
     // int i = 0;
     k.fount(file, determinant_tr);
     //cout << c.normal_count;
