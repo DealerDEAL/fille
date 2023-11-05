@@ -126,12 +126,13 @@ int main()
     char* v;
     v = strtok(bufer, " ");
     while (v) { 
-    cout << v << endl; 
+    //cout << v << "\n" << endl; 
     v = strtok(NULL," "); 
+    cout << v << "\n" << endl; 
     } 
     Verticals j;
     j.x = v;
-    //cout << "\n" << j.x;
+    cout << "\n" << j.x;
      vector<string> determinant;
      char determinant_tr[8];
      string y;
