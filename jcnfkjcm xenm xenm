@@ -11,9 +11,7 @@ using namespace std;
 
  class Verticals{
     public:
-    string x, y, z, w;
-    string p[256];
-    char part[256];
+    string vertical_coordinates;
     /*void Verticals_print(ifstream &file, char* determinant_tr){
         string s;
         int i = 0;
@@ -117,38 +115,38 @@ int main()
     stream = fopen("cube.obj", "r");
     char bufer[256];
     bufer[0] = 'g';
+    vector<string> determinant;
+    char determinant_tr[8];
+    string y;
+    for(int i = 0; i<2; i++){
+        cin >> y;
+    determinant.push_back(y);   
+    }
+    determinant_tr[0] = determinant[0][0];
+    determinant_tr[1] = determinant[1][0];
+    count k;
+    k.fount(file, determinant_tr);
+    Verticals j[8];
+    i = 0;
     while(bufer[0] != 'v'){
         fgets(bufer, sizeof(bufer), stream);
         i++;
         cout << i;
     }
-    cout << i;
     char* v;
-    v = strtok(bufer, " ");
-    while (v) { 
-    //cout << v << "\n" << endl; 
-    v = strtok(NULL," "); 
-    cout << v << "\n" << endl; 
-    } 
-    Verticals j;
-    j.x = v;
-    cout << "\n" << j.x;
-     vector<string> determinant;
-     char determinant_tr[8];
-     string y;
-     for(int i = 0; i<2; i++){
-         cin >> y;
-        determinant.push_back(y);   
+    i = 0;
+    while(i = k.verticals_count){
+        v = strtok(bufer, " ");
+        while (v) { 
+        //cout << v << "\n" << endl; 
+        v = strtok(NULL," "); 
+        j[i].vertical_coordinates = v;
+        cout << "\n" << j[i].vertical_coordinates;
+        } 
     }
-    determinant_tr[0] = determinant[0][0];
-    determinant_tr[1] = determinant[1][0];
+
     //determinant_tr[2] = determinant[2][0];
     //determinant_tr[3] = determinant[3][0];
-    count k;
-    Verticals a;
-    //a.Verticals_print(file, determinant_tr);
-    // int i = 0;
-    k.fount(file, determinant_tr);
     //cout << c.normal_count;
     //while(i<sizeof(bufer)){
     //    std::cout << bufer[i] << std::endl;
